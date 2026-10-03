@@ -258,7 +258,7 @@ Not found despite trying (no award-winning greeting microsite surfaced for these
   - Countdown labels: "Santa Takes Off In" / "Until Santa Departs"; units "Days / Hrs / Min / Sec"
   - "Welcome to the Google Maps Santa Tracker!"
 
-### R9 — Bruno Simon Folio 2019 — bruno-simon.com (2019 edition; code-verified)
+### R9 — Bruno Simon Folio 2019 — bruno-simon.com (2019 edition; code-verified) [SRC: GitHub clone, pre-rule]
 - **Source pages and files:** repo `brunosimon/folio-2019` @ 540f135:
   - `package.json`, `src/index.html`, `src/style/main.css`
   - `src/javascript/World/index.js`, `src/javascript/World/Sounds.js`, `src/javascript/World/EasterEggs.js`
@@ -275,7 +275,7 @@ Not found despite trying (no award-winning greeting microsite surfaced for these
 - **Cursor (VERIFIED):** native `grab` / `grabbing` / `pointer` classes on the canvas. **No custom cursor.**
 - **Easter egg (VERIFIED):** Konami code (`EasterEggs.js`).
 
-### R10 — Bruno Simon Folio 2025 (with seasonal events) — https://bruno-simon.com (code-verified)
+### R10 — Bruno Simon Folio 2025 (with seasonal events) — https://bruno-simon.com (code-verified) [SRC: GitHub clone, pre-rule]
 - **Source pages and files:** repo `brunosimon/folio-2025` @ 41046b5 (branches `main`, `2025-easter`, …):
   - `package.json`, `sources/index.html`, `sources/style/{fonts,general,menu,notifications}.styl`
   - `sources/Game/{Reveal,Audio,Title,KonamiCode,Easter}.js`, `sources/Game/World/{Intro,Confetti,Snow}.js`
@@ -350,21 +350,23 @@ Not found despite trying (no award-winning greeting microsite surfaced for these
 - **S9 Active Theory, "Finding Love"** (15 Jan 2017): https://medium.com/@activetheory/finding-love-b4cf6727721b. Theme assumed from the title; content NOT FOUND.
 - **S10 Bruno Imbrizi, "Billie Deer"** (21 Dec 2016): http://brunoimbrizi.com/unbox/2016/12/billie-deer/
 - **S11 Samsy, "The Legend of IceCoon"** (26 Dec 2016): https://medium.com/@Samsy/the-legend-of-icecoon-case-study-advanced-webgl-first-part-185742e82429
-- **S12 peter.christmas** (VERIFIED README): one personal card per year, 2010–2018. CSS3 card (2010–11) → Three.js (2012) → Goo (2013) → Pixi.js game (2014, 2016) → mo.js (2015) → web AR (2017–18). Shows the "annual tradition" pattern outside agencies. No award.
+- **S12 peter.christmas** (VERIFIED README) [SRC: GitHub clone, pre-rule]: one personal card per year, 2010–2018. CSS3 card (2010–11) → Three.js (2012) → Goo (2013) → Pixi.js game (2014, 2016) → mo.js (2015) → web AR (2017–18). Shows the "annual tradition" pattern outside agencies. No award.
 - **S14 Unattributed Awwwards Inspiration clips:** "2018 Greetings – interactive microsite", "New Year Wishes – smooth transition", "Interactive Microsite Game", "Drag & Drop Pastel microsite" (https://www.awwwards.com/inspiration/…). Owners NOT FOUND; they surfaced alongside makemepulse results.
 
-## 4. Tooling cards (VERIFIED from library source; these are not sites)
+## 4. Tooling cards (VERIFIED from npm registry tarballs; these are not sites)
 
-- **T1 canvas-confetti v1.9.4** (`src/confetti.js`). Defaults:
+Source: `registry.npmjs.org`, via `npm pack canvas-confetti@1.9.4`, `npm pack lenis@1.3.26` and `npm pack locomotive-scroll@5.0.1`. Current npm "latest" versions checked with `npm view`: gsap 3.15.0, howler 2.2.4, three 0.186.1, cannon 0.6.2, @dimforge/rapier3d 0.21.0, lottie-web 5.13.0.
+
+- **T1 canvas-confetti v1.9.4** (`package/src/confetti.js` in the npm tarball). Defaults:
   - `particleCount 50`, `angle 90`, `spread 45`, `startVelocity 45`, `decay 0.9`, `gravity 1`, `drift 0`, `ticks 200`, origin `x .5 / y .5`
   - shapes `square`, `circle`; `zIndex 100`; `scalar 1`
   - colors `#26CCFF #A25AFD #FF5E7E #88FF5A #FCFF42 #FFA62D #FF36FF`
   - Supports `disableForReducedMotion` (checks `matchMedia('(prefers-reduced-motion)')`, default false), `shapeFromPath` and `shapeFromText` (emoji confetti).
-- **T2 Lenis v1.3.26** (`packages/core/src/lenis.ts`). Defaults:
+- **T2 Lenis v1.3.26** (`package/dist/lenis.mjs` and `lenis.js` in the npm tarball). Defaults:
   - `lerp 0.1`, `smoothWheel true`, `syncTouch false`, `syncTouchLerp 0.075`, `touchMultiplier 1`, `wheelMultiplier 1`, `autoRaf false`, **`respectReducedMotion true`**
   - Default easing when only `duration` is set: `t => Math.min(1, 1.001 - 2 ** (-10 * t))` (expo-out)
   - README shows the GSAP ScrollTrigger sync recipe (`lenis.on('scroll', ScrollTrigger.update)`, `gsap.ticker.add(t => lenis.raf(t*1000))`)
-- **T3 Locomotive Scroll v5.0.0-rc.1**: "Built on top of Lenis", 9.4 kB gzipped, `data-scroll data-scroll-speed="0.5"` parallax, "Parallax auto-disabled on mobile", native scrollbar.
+- **T3 Locomotive Scroll v5.0.1** (npm `latest`; its package.json depends on `lenis` 1.3.17): "Built on top of Lenis", 9.4 kB gzipped, `data-scroll data-scroll-speed="0.5"` parallax, "Parallax auto-disabled on mobile", native scrollbar.
 
 ---
 

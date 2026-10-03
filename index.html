@@ -1,0 +1,309 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <!-- "Happy Birthday + Name", no comma: Happy Birthday ELLE / Game Boy / Jigoro Kano (Awwwards) -->
+  <title>Happy Birthday Mustafa</title>
+  <meta name="description" content="Today is for you." />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Happy Birthday Mustafa" />
+  <meta property="og:description" content="Today is for you." />
+  <meta property="og:image" content="og.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="theme-color" content="#000000" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%8E%82%3C/text%3E%3C/svg%3E" />
+  <link rel="preload" as="image" href="mustafa.jpg" />
+</head>
+<body class="is-loading">
+  <!-- ───────────── PRELOADER ─────────────
+       Ground #ffa441 + "INITIALIZING..." (Getty × Resn, Sculpting Harmony)
+       Rotating type ring around a % counter, "PREPARING YOUR GOOD TIMES" (Slosh Seltzer)
+       Multilingual greeting flashes + curtain with rounded edge (dennissnellenberg.com) -->
+  <div class="loader" id="loader">
+    <div class="loader__bar mono">
+      <span>Happy Birthday Mustafa</span>
+      <span class="loader__status">Initializing...</span>
+    </div>
+    <div class="loader__center">
+      <div class="loader__ringwrap" aria-hidden="true">
+        <svg class="loader__ring" viewBox="0 0 200 200">
+          <defs><path id="ringPath" d="M100,100 m-82,0 a82,82 0 1,1 164,0 a82,82 0 1,1 -164,0" /></defs>
+          <text><textPath href="#ringPath" textLength="514">PREPARING YOUR GOOD TIMES ✦ PREPARING YOUR GOOD TIMES ✦</textPath></text>
+        </svg>
+        <div class="loader__count"><span id="loaderCount">0</span>%</div>
+      </div>
+      <p class="loader__word" aria-hidden="true"></p>
+    </div>
+    <p class="loader__note serif">This birthday has a soundtrack. Best with sound on.</p>
+    <div class="loader__curve" aria-hidden="true"></div>
+  </div>
+
+  <!-- Top bar: 12px mono strip with ✦ spacers + 4-bar audio toggle top-right (Slosh Seltzer) -->
+  <header class="topbar mono">
+    <span class="topbar__title">✦ Happy Birthday Mustafa ✦</span>
+    <button class="sound" id="soundToggle" type="button" aria-label="Sound" aria-pressed="false">
+      <span class="sound__label">Sound</span>
+      <span class="sound__bars" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+    </button>
+  </header>
+
+  <canvas id="smoke" aria-hidden="true"></canvas>
+
+  <!-- ───────────── GATE: the envelope ─────────────
+       Closed envelope with name + stamp → flap opens to a lined interior → card drawn out
+       (Greenvelope; Paperless Post; Evite Premium "animated envelope and digital stamps").
+       "enter with sound / enter without sound" (Ten Years Away). -->
+  <section class="gate" id="gate" aria-label="A letter for Mustafa">
+    <div class="gate__stage">
+      <button class="envelope" id="envelope" type="button" aria-label="Open the envelope with sound" data-clickable>
+        <span class="envelope__turn">
+          <span class="envelope__face envelope__front">
+            <span class="stamp">
+              <span class="stamp__paper">
+                <img src="mustafa.jpg" alt="" />
+                <span class="stamp__value" data-age></span>
+              </span>
+            </span>
+            <span class="postmark" aria-hidden="true">
+              <svg viewBox="0 0 120 120">
+                <defs><path id="pmPath" d="M60,60 m-44,0 a44,44 0 1,1 88,0 a44,44 0 1,1 -88,0" /></defs>
+                <circle cx="60" cy="60" r="54" />
+                <circle cx="60" cy="60" r="34" />
+                <text class="postmark__ring"><textPath href="#pmPath" textLength="270">HAPPY BIRTHDAY ✦ HAPPY BIRTHDAY ✦</textPath></text>
+                <text class="postmark__date" x="60" y="57" text-anchor="middle" data-postmark-day></text>
+                <text class="postmark__date" x="60" y="71" text-anchor="middle" data-postmark-year></text>
+              </svg>
+              <svg class="postmark__waves" viewBox="0 0 160 60" preserveAspectRatio="none">
+                <path d="M0 10 Q 10 4 20 10 T 40 10 T 60 10 T 80 10 T 100 10 T 120 10 T 140 10 T 160 10" />
+                <path d="M0 22 Q 10 16 20 22 T 40 22 T 60 22 T 80 22 T 100 22 T 120 22 T 140 22 T 160 22" />
+                <path d="M0 34 Q 10 28 20 34 T 40 34 T 60 34 T 80 34 T 100 34 T 120 34 T 140 34 T 160 34" />
+                <path d="M0 46 Q 10 40 20 46 T 40 46 T 60 46 T 80 46 T 100 46 T 120 46 T 140 46 T 160 46" />
+              </svg>
+            </span>
+            <span class="envelope__to">
+              <span class="mono envelope__label">To</span>
+              <span class="envelope__name serif">Mustafa</span>
+              <span class="mono envelope__label" data-envelope-line></span>
+            </span>
+            <span class="mono envelope__from" data-from></span>
+          </span>
+          <span class="envelope__face envelope__back">
+            <span class="envelope__liner"></span>
+            <span class="card" id="card">
+              <img class="card__photo" src="mustafa.jpg" alt="" />
+              <span class="card__text">
+                <span class="card__title">Happy Birthday Mustafa</span>
+                <span class="card__meta" data-card-meta></span>
+              </span>
+            </span>
+            <span class="envelope__pocket"></span>
+            <span class="envelope__flap">
+              <span class="envelope__flap-out"><span class="seal">M</span></span>
+              <span class="envelope__flap-in"></span>
+            </span>
+          </span>
+        </span>
+      </button>
+      <div class="gate__choices">
+        <button class="pill pill--light" id="openWithSound" type="button" data-magnetic>Open with sound</button>
+        <button class="textlink mono" id="openWithoutSound" type="button">[ Open without sound ]</button>
+      </div>
+    </div>
+  </section>
+
+  <main id="site" class="site" aria-hidden="true">
+
+    <!-- ───────────── HERO ─────────────
+         Full-height portrait, parallax, giant name marquee at bottom:15vh, max(9em,15vw),
+         18 s loop that reverses with scroll direction, "hanger" badge left, arrow + line right
+         (dennissnellenberg.com). Label/value "Birthday today" / "{emoji} {date} ({count} years old)"
+         (Telegram). "today is for you." (Wikipedia 20). -->
+    <section class="hero" id="hero">
+      <div class="hero__image">
+        <img src="mustafa.jpg" alt="Mustafa" data-clickable id="heroPhoto" />
+      </div>
+      <div class="hero__hanger once-in">
+        <span class="mono hero__hanger-label" data-hanger-label></span>
+        <span class="hero__hanger-value" data-hanger-value></span>
+      </div>
+      <div class="hero__aside once-in">
+        <span class="hero__arrow" aria-hidden="true">↘</span>
+        <p class="hero__line">Today is<br />for you.</p>
+      </div>
+      <div class="hero__name once-in" id="heroName" data-clickable>
+        <div class="marquee" id="heroMarquee">
+          <h1 class="marquee__item">Happy Birthday Mustafa<span class="marquee__spacer">—</span></h1>
+          <span class="marquee__item" aria-hidden="true" data-nosnippet>Happy Birthday Mustafa<span class="marquee__spacer">—</span></span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ───────────── INTRO ─────────────
+         "IT IS OUR 20TH BIRTHDAY! 🎂 … today is for you. Join the celebration" (Wikipedia 20)
+         two-column intro + magnetic button (dennissnellenberg.com) -->
+    <section class="intro">
+      <p class="intro__lead serif" data-reveal><span data-ordinal-line></span></p>
+      <div class="intro__side">
+        <p class="intro__copy" data-reveal data-intro-copy></p>
+        <a class="pill pill--light" href="#ch1" data-magnetic data-scrollto>Join the celebration</a>
+      </div>
+    </section>
+
+    <!-- ───────────── CHAPTER I ─────────────
+         Numbered chapter; title floods the screen in a chapter hue; title stretched edge to edge
+         at full viewport height in a compressed black grotesque (Getty × Resn).
+         Cut-out portrait overlapping gigantic type (Spotify "Your 2018 Wrapped", Active Theory). -->
+    <section class="chapter" id="ch1" style="--hue: var(--c-red)">
+      <div class="chapter__labels mono"><span>Chapter I</span><span>Your Birthday Wrapped</span></div>
+      <h2 class="chapter__title" data-stretch><span>Wrapped</span></h2>
+      <img class="chapter__cutout" src="mustafa-cutout.webp" alt="" loading="lazy" />
+    </section>
+
+    <!-- NUMBERS: age as the hero graphic (Google 25 "G25gle", YouTube "20", Telegram age digits),
+         count-up (GitHub Unwrapped), "N seconds young today" (Google personal birthday Doodle),
+         0.6 s digit roll (Santa Tracker countdown), "Your 2024 Wrapped is here" card (Spotify),
+         "Unwrap" / "Unwrapping..." (GitHub Unwrapped). -->
+    <section class="numbers" id="numbers">
+      <p class="mono label">You are</p>
+      <div class="numbers__age" id="ageCount" aria-label="">0</div>
+      <p class="numbers__unit">years old</p>
+      <div class="numbers__seconds">
+        <span class="numbers__ticker" id="secondsTicker" aria-live="off"></span>
+        <span class="numbers__seconds-label">seconds young today.</span>
+      </div>
+      <div class="unwrap" id="unwrapCard">
+        <span class="mono label">#BirthdayWrapped</span>
+        <p class="unwrap__title">Your Birthday Wrapped is here</p>
+        <button class="pill" id="unwrapBtn" type="button" data-magnetic>Unwrap</button>
+      </div>
+    </section>
+
+    <!-- ───────────── CHAPTER II ───────────── -->
+    <section class="chapter" id="ch2" style="--hue: var(--c-blue)">
+      <div class="chapter__labels mono"><span>Chapter II</span><span>Make a wish</span></div>
+      <h2 class="chapter__title" data-stretch><span>Wish</span></h2>
+      <img class="chapter__cutout" src="mustafa-cutout.webp" alt="" loading="lazy" />
+    </section>
+
+    <!-- CAKE: blow out the candles with the microphone, or the phone's motion sensors
+         (Happy Birthday ELLE, Awwwards HM + FWA). Click / Space fallback, flame, smoke, blow
+         sound, chime, dual confetti and copy (uday-birthday-wishes). Age digits as the candles
+         (Telegram animated age digits; Google 25 number-in-wordmark). -->
+    <section class="cake-section" id="cake">
+      <p class="mono label">Make a wish</p>
+      <p class="cake-section__prompt" id="cakePrompt">✨ Blow into your mic, click the cake or press Space to blow the candles out!</p>
+      <div class="cake" id="cakeEl" role="button" tabindex="0" aria-label="Blow out the candles" data-clickable>
+        <div class="cake__candles" id="candles"></div>
+        <div class="cake__tier cake__tier--1"></div>
+        <div class="cake__tier cake__tier--2"></div>
+        <div class="cake__tier cake__tier--3"></div>
+        <div class="cake__plate"></div>
+      </div>
+      <div class="cake-section__actions">
+        <button class="pill pill--light" id="micBtn" type="button" data-magnetic>Use microphone</button>
+        <button class="pill pill--light" id="motionBtn" type="button" hidden>Use motion</button>
+        <button class="textlink mono" id="relightBtn" type="button" hidden>[ Play again ]</button>
+      </div>
+    </section>
+
+    <!-- ───────────── CHAPTER III ───────────── -->
+    <section class="chapter" id="ch3" style="--hue: var(--c-green)">
+      <div class="chapter__labels mono"><span>Chapter III</span><span>A message for you</span></div>
+      <h2 class="chapter__title" data-stretch><span>Send</span></h2>
+      <img class="chapter__cutout" src="mustafa-cutout.webp" alt="" loading="lazy" />
+    </section>
+
+    <!-- MESSAGE: fake chat box typing "Happy birthday to you!! Yeee! Many many happy blah..."
+         then the fake-out lines (faahim/happy-birthday, ~1.5k stars), scrubbed by scroll
+         (Getty: ScrollTrigger scrub on by default). Typed letter (halo-maya: TypeIt speed 42),
+         essay column with a giant drop cap (Getty). iMessage "happy birthday" → Balloons
+         + "(Sent with Balloons)". Group card wall (Kudoboard / Partiful Cards). -->
+    <section class="chat" id="chat">
+      <div class="chat__pin">
+        <div class="composer" id="composer">
+          <span class="composer__field"><span class="composer__text" id="composerText"></span><span class="caret" aria-hidden="true"></span></span>
+          <span class="composer__send" id="composerSend">Send</span>
+        </div>
+        <div class="chat__lines" id="chatLines" aria-live="polite">
+          <p class="chat__line">That's what I was going to do.</p>
+          <p class="chat__line">But then I stopped.</p>
+          <p class="chat__line">I realised, I wanted to do something special.</p>
+          <p class="chat__line">Because,</p>
+          <p class="chat__line chat__line--big">You are Special :)</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="letter" id="letter">
+      <p class="mono label letter__label">A letter for Mustafa</p>
+      <div class="letter__body" id="letterBody"></div>
+      <p class="letter__sign serif" id="letterSign"></p>
+    </section>
+
+    <section class="sent" id="sent">
+      <div class="bubble" id="bubble">Happy Birthday, Mustafa 🎂</div>
+      <p class="sent__label" id="sentLabel">(Sent with Balloons)</p>
+    </section>
+
+    <section class="wall" id="wall" hidden>
+      <p class="mono label">Everyone signed it</p>
+      <div class="wall__grid" id="wallGrid"></div>
+    </section>
+
+    <!-- ───────────── CLOSE ─────────────
+         Closes on the preloader's #ffa441 with a stretched title, credits, back-to-top and
+         copyright (Getty). Letter balloons spelling words (balloons-js textBalloons),
+         side cannons (canvas-confetti README), click fireworks (Julian Garnier pen),
+         "Play again" + "Copy link to share" (Santa Tracker), "Download story (image)"
+         (GitHub Unwrapped), "💌 Reply" (halo-maya). -->
+    <section class="finale" id="finale">
+      <h2 class="finale__title" data-stretch-lines>
+        <span>Happy</span><span>Birthday</span><span>Mustafa</span>
+      </h2>
+      <div class="finale__actions">
+        <button class="pill" id="playAgain" type="button" data-magnetic>Play again</button>
+        <button class="pill" id="copyLink" type="button" data-magnetic>Copy link to share</button>
+        <button class="pill" id="downloadStory" type="button" data-magnetic>Download story (image)</button>
+        <a class="pill" id="replyBtn" target="_blank" rel="noopener" hidden data-magnetic>💌 Reply</a>
+      </div>
+      <p class="finale__hint mono">Click anywhere for fireworks</p>
+      <div class="credits">
+        <p class="mono label">Inspired by</p>
+        <ul class="credits__list" id="creditsList"></ul>
+        <p class="mono label">Built with</p>
+        <p class="credits__plain">GSAP · Lenis · Three.js · canvas-confetti · balloons-js · Vite</p>
+        <p class="mono label">Type</p>
+        <p class="credits__plain">Mona Sans · Instrument Serif · Roboto Mono</p>
+      </div>
+      <div class="finale__foot mono">
+        <span>© <span data-year></span> Made for Mustafa</span>
+        <a href="#hero" data-scrollto>[ Back to top ]</a>
+      </div>
+    </section>
+  </main>
+
+  <canvas id="fireworks" aria-hidden="true"></canvas>
+  <canvas id="halftone" aria-hidden="true"></canvas>
+
+  <!-- STORY overlay: 9:16 story with segmented progress bar, tap right = next, left = back,
+       hold = pause, "Share This Story" (Spotify Wrapped); scene timings + copy templates
+       (GitHub Unwrapped); progress bar height .25em, rgba(0,0,0,.3) track (SweetAlert2 timer
+       bar used by halo-maya's auto-advancing cards). -->
+  <div class="story" id="story" role="dialog" aria-modal="true" aria-label="Your Birthday Wrapped" hidden>
+    <div class="story__frame" id="storyFrame">
+      <div class="story__progress" id="storyProgress"></div>
+      <button class="story__close" id="storyClose" type="button" aria-label="Close story">×</button>
+      <div class="story__slides" id="storySlides"></div>
+      <div class="story__tap story__tap--prev" data-dir="-1"></div>
+      <div class="story__tap story__tap--next" data-dir="1"></div>
+    </div>
+  </div>
+
+  <!-- Scene-change wipe: four full-screen layers slide up, 0.75 s each, staggered
+       (Google Santa Tracker santa-interlude), in the site palette. -->
+  <div class="wipe" id="wipe" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>

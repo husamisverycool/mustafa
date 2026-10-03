@@ -71,9 +71,16 @@ export function runPreloader() {
         },
       });
       tl.to(ring, { autoAlpha: 0, scale: 0.9, duration: 0.3, ease: 'snell' }, '+=0.2');
+      // Fit each greeting to the screen width (Active Theory fit-text / fitty: fit text to its box)
+      const fit = (w) => {
+        word.textContent = w;
+        word.style.fontSize = '';
+        const max = innerWidth * 0.9;
+        if (word.scrollWidth > max) word.style.fontSize = (parseFloat(getComputedStyle(word).fontSize) * max) / word.scrollWidth + 'px';
+      };
       if (!reducedMotion()) {
         WORDS.forEach((w, i) => {
-          tl.call(() => { word.textContent = w; }, null, 0.5 + i * 0.15);
+          tl.call(() => fit(w), null, 0.5 + i * 0.15);
           tl.set(word, { opacity: 1 }, 0.5 + i * 0.15);
         });
       }

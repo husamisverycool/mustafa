@@ -25,6 +25,16 @@ export default {
     'Here is to your best year yet. I love you, brother.',
   ],
 
+  // Memories (Chapter I and the Wrapped story). `landscape` turns the Instax print sideways.
+  // `caption` is optional; the print shows "01 / 05" when it is empty.
+  memories: [
+    { src: 'memories/graduation.webp', alt: 'Graduation night: two friends in gowns and leis', landscape: true, caption: '' },
+    { src: 'memories/dorm.webp', alt: 'A bedroom selfie, one friend on the bed holding a Taco Bell box', landscape: true, caption: '' },
+    { src: 'memories/creek-selfie.webp', alt: 'A selfie of three by a creek in the woods', landscape: true, caption: '' },
+    { src: 'memories/creek.webp', alt: 'Posing against a tree by the water', landscape: false, caption: '' },
+    { src: 'memories/forest.webp', alt: 'Three friends on a forest trail', landscape: true, caption: '' },
+  ],
+
   // Optional group card (Kudoboard / Partiful Cards cosigners pattern).
   // Add messages from family and friends: { from: 'Name', text: 'Message' }.
   // The section stays hidden while this list is empty.

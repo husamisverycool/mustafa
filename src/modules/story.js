@@ -24,6 +24,7 @@ const HUES = {
 
 function slides() {
   const age = celebratedAge();
+  const prints = (config.memories || []).filter((m) => m.landscape).slice(0, 3);
   const name = config.name;
   return [
     {
@@ -40,6 +41,12 @@ function slides() {
     },
     { hue: 'red', dur: 120 / 30, html: `<p class="slide__statement">Out of all the ${config.superlativeGroup} out there...</p>` },
     { hue: 'blue', dur: 120 / 30, html: `<p class="slide__giant">#1</p><p class="slide__text">That's you, ${name}.</p>` },
+    // GitHub Unwrapped 2022: "Here are some sweet ones."; 5 s per photo (Google Photos Memories)
+    ...(prints.length ? [{
+      hue: 'red', dur: 5,
+      html: `<p class="slide__statement">Here are some sweet ones.</p>${prints.map((m) => `
+             <div class="print print--landscape"><figure class="print__paper"><div class="print__window"><img src="${m.src}" alt="${m.alt || ''}" /></div></figure></div>`).join('')}`,
+    }] : []),
     {
       hue: 'green', dur: 260 / 30,
       html: `<p class="slide__statement">You've lived tons of days!</p>
@@ -72,8 +79,8 @@ function slides() {
              <p class="slide__text">${age} years. Today is for you.</p>
              <div class="slide__buttons">
                <button class="pill" type="button" data-act="share">Share This Story</button>
-               <button class="pill" type="button" data-act="download">Download story (image)</button>
                <button class="pill pill--light" type="button" data-act="restart">Start over</button>
+               <button class="textlink mono" type="button" data-act="download">[ Download story (image) ]</button>
              </div>`,
     },
   ];
@@ -140,7 +147,7 @@ export function initStory() {
     zone.addEventListener('pointerdown', () => { downAt = performance.now(); if (timer) timer.pause(); });
     zone.addEventListener('pointerup', () => {
       const held = performance.now() - downAt;
-      if (held < 250) next(+zone.dataset.dir);
+      if (held < 200) next(+zone.dataset.dir); // react-insta-stories: hold ≥ 200 ms = pause
       else if (timer) timer.resume();
     });
     zone.addEventListener('pointerleave', () => { if (timer && timer.paused()) timer.resume(); });

@@ -42,11 +42,11 @@
   <!-- Top bar: 12px mono strip with ✦ spacers + 4-bar audio toggle top-right (Slosh Seltzer) -->
   <header class="topbar mono">
     <span class="topbar__title">✦ Happy Birthday Mustafa ✦</span>
-    <button class="sound" id="soundToggle" type="button" aria-label="Sound" aria-pressed="false">
-      <span class="sound__label">Sound</span>
-      <span class="sound__bars" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
-    </button>
   </header>
+  <!-- 4-bar audio toggle, top-right, no label (Slosh Seltzer); 44 × 44 hit area (Apple HIG) -->
+  <button class="sound" id="soundToggle" type="button" aria-label="Sound" aria-pressed="false">
+    <span class="sound__bars" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+  </button>
 
   <canvas id="smoke" aria-hidden="true"></canvas>
 
@@ -59,7 +59,7 @@
       <button class="envelope" id="envelope" type="button" aria-label="Open the envelope with sound" data-clickable>
         <span class="envelope__turn">
           <span class="envelope__face envelope__front">
-            <span class="stamp">
+            <span class="stamp" aria-hidden="true">
               <span class="stamp__paper">
                 <img src="mustafa.jpg" alt="" />
                 <span class="stamp__value" data-age></span>
@@ -131,6 +131,9 @@
         <span class="hero__arrow" aria-hidden="true">↘</span>
         <p class="hero__line">Today is<br />for you.</p>
       </div>
+      <!-- WCAG 2.2.2: moving content over 5 s next to other content needs a pause (rulebook M14a);
+           Getty bracketed mono label -->
+      <button class="textlink mono hero__pause once-in" id="marqueePause" type="button" aria-controls="heroMarquee" aria-pressed="false">[ Pause ]</button>
       <div class="hero__name once-in" id="heroName" data-clickable>
         <div class="marquee" id="heroMarquee">
           <h1 class="marquee__item">Happy Birthday Mustafa<span class="marquee__spacer">—</span></h1>
@@ -172,6 +175,27 @@
         <span class="numbers__ticker" id="secondsTicker" aria-live="off"></span>
         <span class="numbers__seconds-label">seconds young today.</span>
       </div>
+    </section>
+
+    <!-- MEMORIES: the name every memories product uses (Apple, Google, Facebook, Snapchat,
+         Instagram). A horizontal track, one photo in focus, the next one peeking in (Google Photos
+         2024 carousel, Material 3 Carousel: 16 px outer padding, 8 px gaps, 40–56 px peek; NN/g).
+         Instax Mini prints (frame 54 × 86 mm, image 46 × 62 mm) that "develop" from fog like
+         Instagram's polaroid "Frames" sticker; grey mono captions (Getty). Desktop: scroll-driven
+         horizontal track (Ten Years Away; 20 Years Inspired by People). -->
+    <section class="memories" id="memories" aria-labelledby="memTitle">
+      <div class="memories__pin">
+        <div class="memories__head">
+          <p class="mono label">Memories</p>
+          <h2 class="memories__title serif" id="memTitle">A look back.</h2>
+        </div>
+        <div class="memories__viewport" id="memViewport" tabindex="0" aria-label="Memories, scroll sideways">
+          <ol class="memories__track" id="memTrack"></ol>
+        </div>
+      </div>
+    </section>
+
+    <section class="unwrap-section" id="unwrapSection">
       <div class="unwrap" id="unwrapCard">
         <span class="mono label">#BirthdayWrapped</span>
         <p class="unwrap__title">Your Birthday Wrapped is here</p>
@@ -263,8 +287,8 @@
       </h2>
       <div class="finale__actions">
         <button class="pill" id="playAgain" type="button" data-magnetic>Play again</button>
-        <button class="pill" id="copyLink" type="button" data-magnetic>Copy link to share</button>
-        <button class="pill" id="downloadStory" type="button" data-magnetic>Download story (image)</button>
+        <button class="pill pill--light" id="copyLink" type="button" data-magnetic>Copy link to share</button>
+        <button class="textlink mono" id="downloadStory" type="button">[ Download story (image) ]</button>
         <a class="pill" id="replyBtn" target="_blank" rel="noopener" hidden data-magnetic>💌 Reply</a>
       </div>
       <p class="finale__hint mono">Click anywhere for fireworks</p>

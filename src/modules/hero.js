@@ -40,6 +40,15 @@ export function initHero() {
     onUpdate: (self) => gsap.to(loop, { timeScale: self.direction, duration: 0.3, overwrite: true }),
   });
 
+  // pause / play (WCAG 2.2.2 Pause, Stop, Hide; rulebook M14a)
+  const pauseBtn = $('#marqueePause');
+  pauseBtn.addEventListener('click', () => {
+    const paused = !loop.paused();
+    loop.paused(paused);
+    pauseBtn.textContent = paused ? '[ Play ]' : '[ Pause ]';
+    pauseBtn.setAttribute('aria-pressed', String(paused));
+  });
+
   // parallax
   gsap.to('#heroPhoto', {
     y: () => innerWidth * 3 * 0.1, ease: 'none',

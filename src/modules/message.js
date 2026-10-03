@@ -45,12 +45,15 @@ export function initMessage() {
   // ── letter (typed by scroll) ──
   const body = $('#letterBody');
   const chars = [];
+  // a short first line is a salutation; the drop cap goes on the first paragraph long enough to wrap it
+  const capIndex = config.letter.findIndex((t) => t.length > 80);
   config.letter.forEach((para, pi) => {
     const p = document.createElement('p');
+    if (pi < capIndex) p.className = 'letter__salutation';
     [...para].forEach((c, ci) => {
       const span = document.createElement('span');
       span.textContent = c;
-      if (pi === 0 && ci === 0) span.className = 'dropcap ch';
+      if (pi === capIndex && ci === 0) span.className = 'dropcap ch';
       else span.className = 'ch';
       p.appendChild(span);
       chars.push(span);

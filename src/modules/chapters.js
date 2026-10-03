@@ -5,7 +5,7 @@
 // entrance values (1.5 s, stagger .07, expo.out). The cut-out portrait overlapping gigantic type
 // is Spotify "Your 2018 Wrapped" (Active Theory): "gigantic text with overlapping … headshots
 // in both solid and cutout form".
-import { gsap, ScrollTrigger, SplitText } from './scroll.js';
+import { gsap, SplitText } from './scroll.js';
 import { $$, reducedMotion } from './util.js';
 
 // Fit a single-line span to its container's width, then stretch it vertically to the height.
@@ -38,14 +38,17 @@ export function initChapters() {
   const layout = () => { titles.forEach(stretch); lineTitles.forEach(fitLines); };
   layout();
   document.fonts && document.fonts.ready.then(layout);
-  addEventListener('resize', () => { layout(); ScrollTrigger.refresh(); });
+  // Re-fit only when the width changes: phone address bars resize the height while scrolling, and
+  // ScrollTrigger already refreshes itself on real resizes (rulebook M16, M33: ignoreMobileResize)
+  let lastW = innerWidth;
+  addEventListener('resize', () => { if (innerWidth === lastW) return; lastW = innerWidth; layout(); });
 
   const still = reducedMotion();
   titles.forEach((title) => {
     const chapter = title.closest('.chapter');
     const split = SplitText.create(title.firstElementChild, { type: 'chars', mask: 'chars' });
     const cutout = chapter.querySelector('.chapter__cutout');
-    const tl = gsap.timeline({ scrollTrigger: { trigger: chapter, start: 'top 60%' } });
+    const tl = gsap.timeline({ scrollTrigger: { trigger: chapter, start: 'top 60%' }, onComplete: () => gsap.set(split.masks, { overflow: 'visible' }) });
     tl.from(split.chars, { yPercent: 100, duration: still ? 0.01 : 1.5, stagger: 0.07, ease: 'expo.out' }, 0);
     if (cutout) tl.from(cutout, { yPercent: 30, autoAlpha: 0, duration: still ? 0.01 : 1.5, ease: 'expo.out' }, 0.2);
     tl.from(chapter.querySelectorAll('.chapter__labels span'), { y: 20, autoAlpha: 0, duration: 1.5, stagger: 0.07, ease: 'expo.out' }, 0.1);
@@ -56,6 +59,7 @@ export function initChapters() {
     gsap.from(split.chars, {
       yPercent: 100, duration: still ? 0.01 : 1.5, stagger: 0.03, ease: 'expo.out',
       scrollTrigger: { trigger: title, start: 'top 75%' },
+      onComplete: () => gsap.set(split.masks, { overflow: 'visible' }),
     });
   });
 
@@ -65,6 +69,7 @@ export function initChapters() {
       onSplit: (self) => gsap.from(self.lines, {
         yPercent: 100, duration: still ? 0.01 : 1.5, stagger: 0.07, ease: 'expo.out',
         scrollTrigger: { trigger: el, start: 'top 85%' },
+        onComplete: () => gsap.set(self.masks, { overflow: 'visible' }),
       }) });
     return split;
   });

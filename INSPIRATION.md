@@ -43,16 +43,16 @@ This file is the audit trail. Each decision names its source. The raw evidence i
 | | | The card expands to fill the screen and becomes the hero. | Columbia Pictures 100 (Exo Ape): "seamless page transitions". Spotify 2018: elements lined up exactly across scenes. |
 | 3 | Hero | A full-height portrait with scroll parallax. | dennissnellenberg.com |
 | | | The name, enormous, across the bottom: `bottom: 15vh`, `font-size: max(9em, 15vw)`, line-height 1. It is an endless marquee: GSAP xPercent −100, 18 s, ease none, repeat −1, reversing direction when you scroll up. | dennissnellenberg.com |
-| | | A left "hanger" badge reads "Birthday today / 🎂 October 3 (22 years old)". | Badge: Snellenberg's "Located in the Netherlands" hanger. Wording: Telegram swaps "Date of birth" for "Birthday today", with the format "{emoji} {date} ({count} years old)". |
+| | | A left "hanger" badge reads "Birthday today / 🎂 October 3 (20 years old)". | Badge: Snellenberg's "Located in the Netherlands" hanger. Wording: Telegram swaps "Date of birth" for "Birthday today", with the format "{emoji} {date} ({count} years old)". |
 | | | Before the birthday, the badge counts down instead: "Days / Hrs / Min / Sec". | Google Santa Tracker countdown units |
 | | | Right side: "↘ Today is for you." | Arrow + line: Snellenberg. Words: Wikipedia's 20th-birthday post, "today is for you". |
 | | | Balloons rise once per page load. | Twitter's 2015 profile birthday balloons ("fly up from the bottom of the screen", once per load), drawn with balloons-js (Artur Bień) |
 | | | Clicking the name or photo fires a confetti shower. | Google's 25th-birthday Doodle: click → confetti |
-| 4 | Intro | "IT IS YOUR 22ND BIRTHDAY! 🎂 … today is for you." in two columns, with a magnetic **Join the celebration** pill. | Wikipedia 20: "IT IS OUR 20TH BIRTHDAY! 🎂 … Over 20 years… today is for you. Join the celebration". Layout and magnetic button: dennissnellenberg.com |
+| 4 | Intro | "IT IS YOUR 20TH BIRTHDAY! 🎂 … today is for you." in two columns, with a magnetic **Join the celebration** pill. | Wikipedia 20: "IT IS OUR 20TH BIRTHDAY! 🎂 … Over 20 years… today is for you. Join the celebration". Layout and magnetic button: dennissnellenberg.com |
 | 5 | Chapter I · *Wrapped* | A red flood. The title is stretched edge to edge at full viewport height in a compressed black grotesque, under mono "CHAPTER I" labels. | Getty: numbered chapters; "the chapter title floods the screen in a chapter hue"; `titleStretch` |
 | | | Mustafa's cut-out portrait stands in front of the giant type. | Spotify *Your 2018 Wrapped* (Active Theory; Awwwards SOTD + FWA, 20M visitors on day 1): "gigantic text with overlapping … headshots in both solid and cutout form" |
-| 6 | The numbers | "YOU ARE / **22** / years old": the age as the hero graphic, counted up. | Age as hero graphic is the most-recurring brand pattern (9 of 14 references: Google 25 "G25gle", YouTube "20", Telegram's age digits…). Size = GitHub Unwrapped's 2-digit counter (800 px on its 1080 canvas). Count-up = GitHub Unwrapped 2021. |
-| | | "694,269,884 seconds young today.", ticking live. Each changed digit rolls in 0.6 s, entering from +50 % and leaving to −50 %. | Google's personalised birthday Doodle: "819,984,950 seconds young today". Digit roll: Santa Tracker countdown. |
+| 6 | The numbers | "YOU ARE / **20** / years old": the age as the hero graphic, counted up. | Age as hero graphic is the most-recurring brand pattern (9 of 14 references: Google 25 "G25gle", YouTube "20", Telegram's age digits…). Size = GitHub Unwrapped's 2-digit counter (800 px on its 1080 canvas). Count-up = GitHub Unwrapped 2021. |
+| | | "631,152,000 seconds young today.", ticking live. Each changed digit rolls in 0.6 s, entering from +50 % and leaving to −50 %. | Google's personalised birthday Doodle: "819,984,950 seconds young today". Digit roll: Santa Tracker countdown. |
 | | | A red card: "#BirthdayWrapped / Your Birthday Wrapped is here / **Unwrap**", which shows "Unwrapping..." on click. | Spotify Home card: "Your 2024 Wrapped is here". GitHub Unwrapped: "Unwrap" / "Unwrapping..." |
 | 7 | The colour wipe | Four full-screen layers slide up (0.75 s each, staggered 0.5 s ÷ 3, easeOutCubic), then exit upward. A whoosh plays in and out. | Google Santa Tracker `santa-interlude`, exact values |
 | 8 | *Birthday Wrapped* story | 9:16 cards; segmented progress bar; tap right = next, left = back, hold = pause; music underneath; ends with **Share This Story** / **Start over**. | Spotify Wrapped |
@@ -61,7 +61,7 @@ This file is the audit trail. Each decision names its source. The raw evidence i
 | | | Slide lengths: 130 f / 120 f / 260 f / 220 f at 30 fps. | GitHub Unwrapped 2021 scene lengths |
 | | | Slide 1: a photo medallion with a "2026" band that flips at frame 60 to read "This is your #BirthdayWrapped". | GitHub Unwrapped 2021: 450 px medallion, 24 px white ring, 0 0 40px shadow, 80 px band, flip at frame 60, "This is my #GitHubUnwrapped" |
 | | | "Out of all the brothers out there..." → "#1. That's you, Mustafa." | GitHub Unwrapped: "Out of all the languages out there..." → top language |
-| | | "You've lived tons of days! 8,035 … to be exact!" | GitHub Unwrapped: "I made tons of contributions!" … "to be exact!" |
+| | | "You've lived tons of days! 7,305 … to be exact!" | GitHub Unwrapped: "I made tons of contributions!" … "to be exact!" |
 | | | "You are … seconds young today." | Google birthday Doodle |
 | | | "[Weekday] was the day it all started." | GitHub Unwrapped: "[Weekday] was my most productive day." |
 | | | "You were in the top 0.005% of brothers globally." | Spotify Wrapped: "You were in the top 0.005% of listeners globally." |
@@ -230,8 +230,8 @@ The mobile breakpoint is 800 px (Studio Freight compono's mobile breakpoint).
 | "INITIALIZING..." | Getty |
 | "PREPARING YOUR GOOD TIMES" | Slosh Seltzer (verbatim) |
 | Open with / without sound | Ten Years Away ("enter with sound / enter without sound") |
-| "Birthday today", "🎂 October 3 (22 years old)" | Telegram |
-| "Today is for you.", "Join the celebration", "IT IS YOUR 22ND BIRTHDAY! 🎂" | Wikipedia 20 |
+| "Birthday today", "🎂 October 3 (20 years old)" | Telegram |
+| "Today is for you.", "Join the celebration", "IT IS YOUR 20TH BIRTHDAY! 🎂" | Wikipedia 20 |
 | "Your Birthday Wrapped is here", "Share This Story", "Start over" | Spotify Wrapped |
 | "#BirthdayWrapped", "Unwrap", "Unwrapping...", "This is your #BirthdayWrapped", "Out of all the … out there...", "tons of …", "to be exact!", "[Weekday] was …", "Download story (image)", "Copied" | GitHub Unwrapped |
 | "You were in the top 0.005% of … globally." | Spotify Wrapped |

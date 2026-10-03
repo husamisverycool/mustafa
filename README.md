@@ -27,7 +27,7 @@ Everything personal lives in **`src/config.js`**:
 
 | Field | What it does |
 |---|---|
-| `birthDate` | **⚠️ Placeholder (`2004-10-03`). Set the real date.** Drives the age, the candles, the day and second counts, and the countdown. |
+| `birthDate` | `2006-10-03`. Drives the age, the candles, the day and second counts, and the countdown. |
 | `sender` | Signature on the envelope, card and letter (default "your brother"). |
 | `letter` | **⚠️ Placeholder text. Write your own.** One string per paragraph. |
 | `messages` | Optional group-card wall: `{ from, text }` entries from friends and family. Hidden while empty. |

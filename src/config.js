@@ -6,9 +6,9 @@
 export default {
   name: 'Mustafa',
 
-  // ⚠️ PLACEHOLDER: replace with Mustafa's real date of birth (YYYY-MM-DD).
+  // Mustafa's date of birth (YYYY-MM-DD).
   // Age, candles, day counts, "seconds young" and the countdown all derive from it.
-  birthDate: '2004-10-03',
+  birthDate: '2006-10-03',
 
   // Who the site is from (signature on the letter, card and envelope).
   sender: 'your brother',

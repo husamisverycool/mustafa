@@ -22,6 +22,17 @@ Compiled: 2026-10-03. Researcher: Claude (design-research subagent).
    - `luruke/awesome-casestudy` @ 974977e (a curated index of WebGL making-of articles, used for discovery)
 
    Details tagged VERIFIED come from those files. I give the file path so anyone can re-check them.
+   **SCOPE NOTE (added after a rule update from the lead).** After the clones above were done, the coordinator said not to fetch any more GitHub repo content, because this session is authorized only for `husamisverycool/mustafa`. The coordinator also said to use what was already gathered plus the npm registry and fonts.googleapis.com.
+   - **No GitHub content was fetched after that message.** No GitHub search tool (MCP or API) was used at any point. The repos were cloned by name with `git clone`.
+   - Findings that rest on those earlier clones carry a **[SRC: GitHub clone, pre-rule]** marker. These are the R8, R9 and R10 cards and S12. If the lead wants them out, they can be removed without touching anything else.
+   - The library cards T1–T3 were **re-verified from the npm registry tarballs** (`npm pack canvas-confetti@1.9.4`, `lenis@1.3.26`, `locomotive-scroll@5.0.1`), so they no longer depend on GitHub.
+   - The Google Fonts families named below were checked on `fonts.googleapis.com/css2` (all HTTP 200):
+     - Lobster
+     - Amatic SC 700
+     - Nunito 400/700/900
+     - Comic Neue 700
+     - Roboto 300/400/500/600
+     - Google Sans 400/500/700
 3. **Confidence tags**
    - **VERIFIED**: read directly in the site's own source code or assets, with the file path given, or (for copy) seen in a rendered asset image from the repo.
    - **REPORTED**: stated in a WebSearch result summary of an Awwwards, FWA, CSSDA, Medium or Behance page. The URL is listed, but I could not open the page myself. Search summaries can hallucinate. **REPORTED (2×)** means two independent queries agreed.
@@ -192,7 +203,7 @@ Not found despite trying (no award-winning greeting microsite surfaced for these
 - **Tech stack:** Three.js, cannon.js, GSAP, CSS animations. REPORTED.
 - **Copy:** NOT FOUND.
 
-### R8 — Google Santa Tracker — https://santatracker.google.com (code-verified)
+### R8 — Google Santa Tracker — https://santatracker.google.com (code-verified) [SRC: GitHub clone, pre-rule]
 - **Source pages and files:** repo `google/santa-tracker-web` @ f6209a4:
   - `prod/index.html`, `prod/loader.js`
   - `static/styles/santa.scss`, `static/styles/_shared.scss`

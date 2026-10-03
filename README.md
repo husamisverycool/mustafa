@@ -2,6 +2,7 @@
 
 A birthday website for Mustafa. It opens with a preloader, then an envelope that opens to reveal a portrait hero. From there it runs through:
 
+- **Memories**: his photos as instant prints you "shake to reveal", then a full-screen memory movie;
 - a *Birthday Wrapped* story;
 - candles you blow out with your microphone;
 - a chat-box fake-out and a typed letter;
@@ -34,6 +35,7 @@ Everything personal lives in **`src/config.js`**:
 | `reply.whatsapp` | Optional phone number (international format, no `+`). It shows a "💌 Reply" button that opens WhatsApp. |
 | `music` | Optional path to an mp3 in `public/`, played instead of the synthesized music box. |
 | `superlativeGroup` | The word in "top 0.005% of ___ globally" (default "brothers"). |
+| `memories` | The photos for the Memories section, the memory movie and the "Here are some sweet ones." story card. Each entry is `{ src, alt, landscape, caption }`. `landscape: true` turns the print sideways for 4:3 photos. `caption` is optional; the default is "01 / 05". Put the files in `public/memories/`. Leave the list empty to hide the section. |
 
 Photos: `public/mustafa.jpg` (the portrait) and `public/mustafa-cutout.webp` (background removed).
 
@@ -41,5 +43,6 @@ Photos: `public/mustafa.jpg` (the portrait) and `public/mustafa-cutout.webp` (ba
 
 - The microphone needs HTTPS, which every host above provides. If the mic is refused, clicking the cake or pressing Space blows the candles out. On phones there is also a "shake" option.
 - Sound is opt-in at the envelope. Press **M** to mute.
+- Phones: checked at 320–430 px wide and in landscape against the cited rulebook in `research/09` (safe areas, 48 px touch targets, 12 px minimum text). See INSPIRATION.md §12.
 - Hidden extras: the Konami code, typing "happy birthday", and clicking Mustafa's name.
 - After deploying, change `og:image` in `index.html` to an absolute URL (for example `https://your-site/og.jpg`) so link previews show the poster image.

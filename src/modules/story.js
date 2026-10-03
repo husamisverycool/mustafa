@@ -87,10 +87,15 @@ function slides() {
 }
 
 export function initStory() {
-  const story = $('#story');
-  const wrap = $('#storySlides');
-  const bar = $('#storyProgress');
-  const list = slides();
+  return createStory($('#story'), slides());
+}
+
+// The story engine, shared by "Your Birthday Wrapped" and the Memories player.
+// `closeAtEnd`: Instagram Stories / Google Photos Memories close after the last item.
+export function createStory(story, list, { closeAtEnd = false } = {}) {
+  const wrap = story.querySelector('.story__slides');
+  const bar = story.querySelector('.story__progress');
+  const closeBtn = story.querySelector('.story__close');
   const still = reducedMotion();
   let index = 0, timer = null, cleanup = null, open = false, lastFocus = null;
 
@@ -137,7 +142,7 @@ export function initStory() {
   function next(dir) {
     const i = index + dir;
     if (i < 0) { show(0, 1); return; }
-    if (i >= list.length) return;
+    if (i >= list.length) { if (closeAtEnd) close(); return; }
     show(i, dir);
   }
 
@@ -179,9 +184,9 @@ export function initStory() {
     if (e.key === ' ') { e.preventDefault(); if (timer) (timer.paused() ? timer.resume() : timer.pause()); }
   };
   addEventListener('keydown', onKey);
-  $('#storyClose').addEventListener('click', () => close());
+  closeBtn.addEventListener('click', () => close());
 
-  function openStory() {
+  function openStory(start = 0) {
     lastFocus = document.activeElement;
     return wipe(() => {
       story.hidden = false;
@@ -191,9 +196,9 @@ export function initStory() {
       document.body.style.overflow = 'hidden';
       if (audio.isOn()) audio.playMelody();
       list.forEach((s) => s.el.classList.remove('is-active'));
-      index = 0;
-      show(0);
-      $('#storyClose').focus();
+      index = start;
+      show(start);
+      closeBtn.focus();
     });
   }
 

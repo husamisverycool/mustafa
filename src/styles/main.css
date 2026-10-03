@@ -407,6 +407,9 @@ body.is-gated .site { visibility: hidden; }
 }
 .memories.is-pinned .memories__viewport { margin-top: 0; overflow: visible; scroll-snap-type: none; }
 .memories.is-pinned .memories__track { gap: var(--gap-padding); padding: 0 var(--container-padding); }
+/* pinned, the head and the prints share one screen: prints are 60svh tall unless that would push
+   them off a short screen (fit-to-box, rulebook M14b / M31) */
+.memories.is-pinned .print { --mm: calc(min(60svh, 100svh - 220px) / 86); }
 /* Instax Mini: frame 54 × 86 mm, image 46 × 62 mm, 4 mm sides/top, 20 mm bottom strip */
 .print { --mm: calc(60svh / 86); flex: none; width: calc(54 * var(--mm)); scroll-snap-align: start; cursor: pointer; }
 .print--landscape { width: calc(86 * var(--mm)); }
@@ -432,6 +435,20 @@ body.is-gated .site { visibility: hidden; }
   /* M3 hero carousel: the large item fills the width minus 16 px padding, 8 px gap and a 48 px peek */
   .print, .print--landscape { width: calc(100vw - 72px); }
 }
+
+.memories__cta { margin-top: var(--gap-padding); }
+
+/* Memories player: the print as large as the story safe area allows (68 % of the frame height
+   between the 14 % / 18 % bands, 84 % of its width), nothing cropped (dossier 08 R3) */
+.story--memories .slide .print { width: min(84cqw, calc(68cqh * 54 / 86)); }
+.story--memories .slide .print--landscape { width: min(84cqw, calc(68cqh * 86 / 54)); }
+/* Apple Photos Memories: title + subtitle laid over the key photo */
+.print__title {
+  position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center;
+  gap: .75em; padding: 8%; text-align: center; color: var(--c-paper);
+  text-shadow: 0 0 40px rgba(0,0,0,.35); /* GitHub Unwrapped medallion shadow */
+}
+.print__title-main { font-size: calc(90 * 100cqw / 1080); line-height: 1.02; }
 
 .unwrap-section { position: relative; padding: 0 var(--container-padding) var(--section-padding); }
 

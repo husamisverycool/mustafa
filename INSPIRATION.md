@@ -2,7 +2,7 @@
 
 The brief had one rule: **nothing on this site may come from our own taste.** Every font, size, colour, button, animation, interaction, section and line of copy had to come from a real, excellent website.
 
-This file is the audit trail. Each decision names its source. The raw evidence is in [`research/`](research/), seven dossiers totalling about 3,900 lines and covering more than 120 references.
+This file is the audit trail. Each decision names its source. The raw evidence is in [`research/`](research/), nine dossiers totalling about 5,300 lines and covering more than 150 references.
 
 | Dossier | Category |
 |---|---|
@@ -13,6 +13,8 @@ This file is the audit trail. Each decision names its source. The raw evidence i
 | [05](research/05-invites-and-ecards.md) | Invitations and e-cards: Partiful, Apple Invites, Paperless Post, iMessage |
 | [06](research/06-greeting-microsites-webgl.md) | Studio greeting microsites: makemepulse, Resn, 14islands, Santa Tracker, Bruno Simon |
 | [07](research/07-type-motion-buttons-tokens.md) | Type, motion, button and texture tokens |
+| [08](research/08-photo-memories-galleries.md) | Photo memories: Apple / Google Photos Memories, Instagram Frames, Instax and Polaroid prints, Material 3 carousel, award-winning galleries |
+| [09](research/09-mobile-excellence.md) | Phones: Awwwards Mobile Excellence, Apple HIG, Material / Android, WCAG 2.2, Lighthouse, the scroll engines' touch defaults. Ends in a 37-rule cited rulebook (M1–M37). |
 
 ---
 
@@ -48,15 +50,25 @@ This file is the audit trail. Each decision names its source. The raw evidence i
 | | | Right side: "↘ Today is for you." | Arrow + line: Snellenberg. Words: Wikipedia's 20th-birthday post, "today is for you". |
 | | | Balloons rise once per page load. | Twitter's 2015 profile birthday balloons ("fly up from the bottom of the screen", once per load), drawn with balloons-js (Artur Bień) |
 | | | Clicking the name or photo fires a confetti shower. | Google's 25th-birthday Doodle: click → confetti |
+| | | **[ Pause ]** / **[ Play ]** under the name stops the marquee. | WCAG 2.2.2 "Pause, Stop, Hide": moving content over 5 s beside other content needs a pause (rulebook M14a). Label style: Getty's bracketed mono labels. |
 | 4 | Intro | "IT IS YOUR 20TH BIRTHDAY! 🎂 … today is for you." in two columns, with a magnetic **Join the celebration** pill. | Wikipedia 20: "IT IS OUR 20TH BIRTHDAY! 🎂 … Over 20 years… today is for you. Join the celebration". Layout and magnetic button: dennissnellenberg.com |
 | 5 | Chapter I · *Wrapped* | A red flood. The title is stretched edge to edge at full viewport height in a compressed black grotesque, under mono "CHAPTER I" labels. | Getty: numbered chapters; "the chapter title floods the screen in a chapter hue"; `titleStretch` |
 | | | Mustafa's cut-out portrait stands in front of the giant type. | Spotify *Your 2018 Wrapped* (Active Theory; Awwwards SOTD + FWA, 20M visitors on day 1): "gigantic text with overlapping … headshots in both solid and cutout form" |
 | 6 | The numbers | "YOU ARE / **20** / years old": the age as the hero graphic, counted up. | Age as hero graphic is the most-recurring brand pattern (9 of 14 references: Google 25 "G25gle", YouTube "20", Telegram's age digits…). Size = GitHub Unwrapped's 2-digit counter (800 px on its 1080 canvas). Count-up = GitHub Unwrapped 2021. |
 | | | "631,152,000 seconds young today.", ticking live. Each changed digit rolls in 0.6 s, entering from +50 % and leaving to −50 %. | Google's personalised birthday Doodle: "819,984,950 seconds young today". Digit roll: Santa Tracker countdown. |
+| 6b | Memories | The five photos, under the mono label "Memories" and the title "A look back." | "Memories" is the name Apple, Google, Facebook, Snapchat and Instagram all use (dossier 08 P1). "Look back": Wikipedia 20, "look back at the past 20 years". |
+| | | Each photo is an Instax Mini print: frame 54 × 86 mm, image 46 × 62 mm (aspect 54/86, borders 4/54 and a 20/54 bottom strip). The 4:3 photos are turned sideways; nothing is cropped. | Fujifilm Instax Mini film dimensions (08 C2); the 3:4 window fits all five photos within 1 % |
+| | | The prints sit "behind the fog" until you **Shake to reveal** (or tap the button, or tap one print); they then "develop", staggered .07 s. | Instagram Frames (May 2024): "Shake to reveal", "develops" like a Polaroid, with a button for viewers who don't shake (08 C3). Stagger: Snellenberg. |
+| | | Captions: "01 / 05" in grey mono on the print's strip. | Getty grey mono captions; nk.studio counter. Real capture dates would be Instagram's "date and timestamp", but the files carry none. |
+| | | Phones: a swipe track with 16 px outer padding, 8 px gaps, each print the width of the screen less a 48 px peek of the next one, snapping. | Material 3 Carousel (hero layout; 16 \| L \| 8 \| S \| 16, small item 40–56 dp); NN/g "half images … signal more content", "support swipe" |
+| | | Desktop: the section pins and the prints travel sideways as you scroll. | *Ten Years Away* and *20 Years Inspired by People* scroll-driven horizontal tracks |
+| | | Once developed the button reads **Play memory movie**; it, or tapping a print, opens a full-screen player: one print per card on a flat chapter hue, **5 s per photo**, tap the right/left half for next/previous, touch and hold to pause, one progress segment per photo, music under it, and it closes after the last photo. | Google Photos Memories (5 s per image; tap halves; "touch and hold to pause"); Instagram segments; Apple Photos "memory movie" with music; Instagram / Google close after the last item |
+| | | The first ("key") photo carries the title and subtitle over the image. | Apple Photos Memories: "title + subtitle" shown with the "key photo" (08 A1) |
 | | | A red card: "#BirthdayWrapped / Your Birthday Wrapped is here / **Unwrap**", which shows "Unwrapping..." on click. | Spotify Home card: "Your 2024 Wrapped is here". GitHub Unwrapped: "Unwrap" / "Unwrapping..." |
 | 7 | The colour wipe | Four full-screen layers slide up (0.75 s each, staggered 0.5 s ÷ 3, easeOutCubic), then exit upward. A whoosh plays in and out. | Google Santa Tracker `santa-interlude`, exact values |
 | 8 | *Birthday Wrapped* story | 9:16 cards; segmented progress bar; tap right = next, left = back, hold = pause; music underneath; ends with **Share This Story** / **Start over**. | Spotify Wrapped |
-| | | Progress segments are .25 em tall, with an rgba(0,0,0,.3) track. | SweetAlert2 timer bar, as used by halo-maya's auto-advancing cards |
+| | | Progress segments are 2 px tall with 2 px margins and a 2 px radius, on an rgba(0,0,0,.3) track. Hold ≥ 200 ms pauses; shorter is a tap. | react-insta-stories 2.8 (read from its source; rulebook M29). Track colour: SweetAlert2 timer bar, as used by halo-maya. |
+| | | Nothing sits in the top 14 % or the bottom 18 % of a card. | Meta Stories safe zones, 250–340 px of 1920 (rulebook M28; the strictest figure) |
 | | | Each new card's content springs up from the bottom while the old text slides up and fades. | Spotify Wrapped 2025 (60fps.design recording); spring ease `back.out(1.7)` from Bruno Simon folio-2025 |
 | | | Slide lengths: 130 f / 120 f / 260 f / 220 f at 30 fps. | GitHub Unwrapped 2021 scene lengths |
 | | | Slide 1: a photo medallion with a "2026" band that flips at frame 60 to read "This is your #BirthdayWrapped". | GitHub Unwrapped 2021: 450 px medallion, 24 px white ring, 0 0 40px shadow, 80 px band, flip at frame 60, "This is my #GitHubUnwrapped" |
@@ -65,7 +77,8 @@ This file is the audit trail. Each decision names its source. The raw evidence i
 | | | "You are … seconds young today." | Google birthday Doodle |
 | | | "[Weekday] was the day it all started." | GitHub Unwrapped: "[Weekday] was my most productive day." |
 | | | "You were in the top 0.005% of brothers globally." | Spotify Wrapped: "You were in the top 0.005% of listeners globally." |
-| | | End card buttons, including **Download story (image)**. | Spotify end options; GitHub Unwrapped "Download story (image)" |
+| | | "Here are some sweet ones." with three prints springing in one after another. | GitHub Unwrapped 2022 copy; Spotify 2025 "staggered grid reveals" |
+| | | End card: **Share This Story** (ink), **Start over** (white), **[ Download story (image) ]** (text link). | Spotify end options; GitHub Unwrapped "Download story (image)". One or two prominent buttons per view, differed by style (Apple HIG Buttons, rulebook M19). |
 | 9 | Chapter II · *Wish* | A blue flood (Getty's chapter II hue). | Getty |
 | 10 | The cake | Blow out the candles with the microphone. On phones, shake. Or click the cake / press Space. | *Happy Birthday ELLE* (Awwwards HM + FWA of the Day): "blow candles with their computer's microphone or by using the gyro of their smartphone". Click / Space: uday-birthday-wishes. |
 | | | Mic detection: fftSize 512, smoothing 0.1, poll every 50 ms, max of frequency bins from bin 4, threshold −50 dB, fire when 2 of the last 3 polls are above it. | `hark` (143k weekly npm downloads), read from its source |
@@ -85,7 +98,7 @@ This file is the audit trail. Each decision names its source. The raw evidence i
 | | | 30 s of side-cannon confetti. | canvas-confetti README: "continuous side cannons for 30 seconds" |
 | | | The song plays again. | Getty: "one piece of music per chapter"; Ten Years Away gives each chapter its own track |
 | | | Click anywhere for fireworks: 30 dots, 50–180 px, 1200–1800 ms easeOutExpo, plus a white ring (80–160 px, 6 → 0 px line, 600–800 ms). | Julian Garnier's CodePen "Fireworks" (gmOwJX), values via a port that credits it |
-| | | Buttons: **Play again**, **Copy link to share** ("Copied" for 1500 ms), **Download story (image)**, **💌 Reply** (opens WhatsApp with a prefilled reply). | Santa Tracker end overlay; GitHub Unwrapped ("Copied" 1500 ms; story image); halo-maya (WhatsApp reply) |
+| | | Buttons: **Play again** (ink), **Copy link to share** (white; "Copied" for 1500 ms), **[ Download story (image) ]** (text link), **💌 Reply** (opens WhatsApp with a prefilled reply). | Santa Tracker end overlay; GitHub Unwrapped ("Copied" 1500 ms; story image); halo-maya (WhatsApp reply). Two prominent buttons, the rest as text links (Apple HIG, rulebook M19). |
 
 ---
 
@@ -211,14 +224,14 @@ The mobile breakpoint is 800 px (Studio Freight compono's mobile breakpoint).
 
 - **Reduced motion** (`prefers-reduced-motion: reduce`):
   - Lenis drops smoothing (built in).
-  - The marquee slows to 50 s (Studio Freight).
+  - The marquee slows to 50 s (Studio Freight), and **[ Pause ]** stops it for anyone (WCAG 2.2.2).
   - Confetti is disabled (canvas-confetti `disableForReducedMotion`, "please confetti responsibly").
   - Balloons are skipped (the NotTwitter balloon rebuild hides them).
   - Letters and reveals appear instantly.
   - Wikipedia 25 swaps its animations for stills in the same situation.
 - **SplitText** puts `aria-label` on the parent and `aria-hidden` on the pieces (GSAP `aria: "auto"`). The marquee clone is `aria-hidden` + `data-nosnippet` (Studio Freight).
 - **Story keyboard:** ← → to move, Space to pause, Esc to close; focus returns to where it was.
-- **Mobile:** `viewport-fit=cover` (Santa Tracker), touch tap zones (Spotify), and a motion fallback for the candles (ELLE).
+- **Mobile:** `viewport-fit=cover` (Santa Tracker), touch tap zones (Spotify), and a motion fallback for the candles (ELLE). Everything else about phones is in §12.
 
 ---
 
@@ -242,6 +255,12 @@ The mobile breakpoint is 800 px (Studio Freight compono's mobile breakpoint).
 | "Play again", "Copy link to share" | Google Santa Tracker |
 | "💌 Reply" | halo-maya ("💌 Balas") |
 | Chapter names *Wrapped*, *Wish*, *Send* | Spotify Wrapped; uday's "made a wish"; the chat box's "Send" button |
+| "Memories" | Apple, Google, Facebook, Snapchat, Instagram |
+| "A look back." | Wikipedia 20 ("look back at the past 20 years") |
+| "Shake to reveal" | Instagram Frames (verbatim) |
+| "Play memory movie" | Apple Photos ("memory movie") |
+| "Here are some sweet ones." | GitHub Unwrapped 2022 |
+| "[ Pause ]" / "[ Play ]" | WCAG 2.2.2 names the mechanism "pause"; Getty's bracket style |
 
 ---
 
@@ -283,7 +302,6 @@ These are the places where a reference supplied the *idea* but not the value. Ea
   - How long the chat is pinned (450 % of the viewport).
   - Where reveals trigger (60–85 % down the screen).
 - **Story:**
-  - Tap vs. hold threshold (250 ms).
   - Slide-out distance (60 px).
   - Count-up durations (1.5 s / 2.5 s).
 - **Cake:**
@@ -298,6 +316,18 @@ These are the places where a reference supplied the *idea* but not the value. Ea
   - Spacing between the Konami bursts (250 ms).
   - Tab-title tick (400 ms).
   - Letter-balloon font size (fitted to the screen width).
+- **Memories:**
+  - The develop animation (1.5 s, blur 10 px → 0, greyscale → colour, fog at 88 % white). Instagram's develop duration and look were NOT FOUND; 1.5 s expo.out is the site's Snellenberg entrance timing.
+  - Prints are 60svh tall on desktop (no source gave a size), shrinking to fit a short screen.
+  - The shake reuses the cake's motion test (15 m/s²); Instagram's shake threshold was NOT FOUND.
+  - The player opens at the print you tapped (Google Photos opens a memory at its start; there is only one memory here).
+  - The player's card colours follow the chapter order red, blue, green, orange.
+- **Phones (§12):**
+  - Where the **[ Pause ]** link sits (under the name, right-aligned). WCAG requires the control but no reference placed one.
+  - The 220 px that the cake (and the pinned Memories head) subtract from the screen height so everything fits one short landscape screen.
+  - On a short landscape phone the envelope and its two buttons sit side by side instead of stacked.
+  - The landscape-phone name size, 24svh, is derived from Snellenberg's own ratio (15vw on a 16:10 screen is 24 % of its height).
+  - The story medallion never shrinks below 150 px, so its 9cqw back text stays at the 12 px floor.
 - **Smoke shader:** internal noise scale and thresholds.
 - **Halftone trail:** stamp strength.
 
@@ -326,3 +356,34 @@ These are the places where a reference supplied the *idea* but not the value. Ea
   - Wikipedia 25: Birthday mode source.
 
   Dossier 04's researcher removed its GitHub-derived detail. That fuller version is preserved in this repo's history at commit `767ea54`, and the hero tokens above cite it.
+- **Dossiers 08 and 09.** They were researched in a later round under the same limits. Most numbers in 09 were read directly from primary sources: Apple's HIG data, developer.android.com, and npm packages (Lighthouse, @material/web, axe-core, GSAP, Lenis, Locomotive, react-insta-stories, @mdn/browser-compat-data). Dossier 08's Awwwards gallery mechanics, Instagram's develop duration and the print rotation angle are NOT FOUND, so none of them were invented.
+
+---
+
+## 12. Phones: the rulebook in `research/09`, applied
+
+Dossier 09 turns Apple's HIG, Material / Android, WCAG 2.2, Lighthouse (the "Google criteria" behind Awwwards' Mobile Excellence award) and the scroll engines' own touch defaults into 37 cited rules. These are the ones that changed the site:
+
+| Rule | What it says | What changed |
+|---|---|---|
+| M1, M31 | Test 320 → 430 px wide, and landscape (compact height < 480 dp, Android window size classes) | Every screen is checked at 320 × 568, 360 × 780, 375 × 667, 390 × 844, 414 × 896, 430 × 932, 667 × 375 and 844 × 390 |
+| M2 | No sideways scroll, no clipped text at 320 px (WCAG 1.4.10, F104) | Automated check on every screen: page width, text off-screen, text leaking or clipped by its box, overlapping text |
+| M4 | Phone side margin 16 px minimum; use the 24 px gap token, not the 40 px container token | Below 600 px the container padding equals Snellenberg's gap token (24 px) |
+| M6 | ≥ 8 px between tappables | Gate, cake, finale and story buttons |
+| M7 | Body 16 px; 17 px where the text is the content (Apple body 17/22) | The letter and messages are 17 px minimum; story asides 16 px minimum |
+| M8 | Nothing a reader must read under 12 px (Lighthouse / Awwwards) | Story labels, envelope labels and card date line raised to 12 px; the decorative stamp and postmark are `aria-hidden` |
+| M11 | Phone titles 28/34 (Apple Title 1) | "Your Birthday Wrapped is here" |
+| M14 | Giant type is either fitted to its box or a marquee with a pause | Marquee pause control; the finale lines are fitted (Active Theory fit-text); landscape name steps down |
+| M16, M33 | Re-fit only on width change; leave ScrollTrigger's `ignoreMobileResize` alone | The stretched titles no longer re-fit (or refresh ScrollTrigger) when the address bar shows or hides |
+| M18, M20 | Every tappable ≥ 44 px, 48 preferred; corner controls largest | Pills keep their 40 px look with an invisible 48 px touch area (`@material/web` `.touch`); text links, the sound toggle, story close and footer links are 48 px |
+| M19 | One or two prominent buttons per view (Apple HIG Buttons) | Story end card and finale: two pills, the rest as bracketed text links |
+| M21 | Pills and labels never overflow at 320 px | Text links balance when a narrow frame wraps them |
+| M25, M26 | Full-screen sections use `svh`; pins don't follow `dvh` | Already the case; kept |
+| M27 | With `viewport-fit=cover`, pad edge-anchored things with `env(safe-area-inset-*)` | Top bar, sound toggle, loader, gate, story progress bar and close, finale, and every section's sides in landscape |
+| M28, M29 | Story safe bands; tap halves, hold ≥ 200 ms, 2 px segments | Story and Memories player |
+| M32, M34 | Native touch scrolling; simplify pinned / horizontal scenes on phones | Lenis keeps `syncTouch: false`; the Memories track pins only above 800 px and is a native swipe on phones (Locomotive's `smartphone: { direction: 'vertical' }` idea) |
+
+**A real phone bug the rulebook's browser data caught:** the cake sized itself with `calc(86vw / 220px)`, a length divided by a length. MDN's browser-compat-data (dossier 09 V1) lists that only from **iOS Safari 26 and Chrome 140**, so on older iPhones the cake tiers would have had no size. The scale is now a plain length (`calc(86vw / 220)`), which every browser supports.
+
+**Kept on purpose:** the 50 s reduced-motion marquee (Studio Freight) rather than a full stop (rulebook M36). A stopped marquee would leave "HAPPY BIRTHD" cut off at the screen edge, which is WCAG F104's failure. The pause control gives anyone the stop.
+

@@ -38,6 +38,10 @@ const CREDITS = [
   ['Kudoboard · Partiful Cards', 'The group card wall'],
   ['20 Years Inspired by People', '/nk.studio: Instrument Serif'],
   ['Cuberto · Studio Freight · Lenis', 'Easing, exclusion blend, parallax maths'],
+  ['Apple · Google Photos Memories', 'The memory movie: 5 s a photo, tap halves, hold to pause'],
+  ['Instagram Frames · Instax Mini', 'Prints that develop when you shake to reveal'],
+  ['Material 3 Carousel · NN/g', 'The swipe track and the peeking next print'],
+  ['Apple HIG · Material · WCAG 2.2', 'Phone rules: safe areas, 48 px targets, 12 px text, pause'],
 ];
 
 export function initFinale() {

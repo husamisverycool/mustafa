@@ -188,6 +188,9 @@
         <div class="memories__head">
           <p class="mono label">Memories</p>
           <h2 class="memories__title serif" id="memTitle">A look back.</h2>
+          <!-- Instagram Frames: "Shake to reveal", with a button for viewers who don't shake;
+               once developed it plays the memory movie (Apple Photos Memories) -->
+          <button class="pill pill--light memories__cta" id="memCta" type="button" data-magnetic>Shake to reveal</button>
         </div>
         <div class="memories__viewport" id="memViewport" tabindex="0" aria-label="Memories, scroll sideways">
           <ol class="memories__track" id="memTrack"></ol>
@@ -319,6 +322,19 @@
       <div class="story__progress" id="storyProgress"></div>
       <button class="story__close" id="storyClose" type="button" aria-label="Close story">×</button>
       <div class="story__slides" id="storySlides"></div>
+      <div class="story__tap story__tap--prev" data-dir="-1"></div>
+      <div class="story__tap story__tap--next" data-dir="1"></div>
+    </div>
+  </div>
+
+  <!-- MEMORIES player: Google Photos Memories (full screen, 5 s per photo, tap right/left half for
+       next/previous, touch and hold to pause), one progress segment per photo (Instagram), title
+       and subtitle over the key photo (Apple Photos Memories), music under it (Apple memory movie). -->
+  <div class="story story--memories" id="memPlayer" role="dialog" aria-modal="true" aria-label="Memories" hidden>
+    <div class="story__frame">
+      <div class="story__progress"></div>
+      <button class="story__close" type="button" aria-label="Close memories">×</button>
+      <div class="story__slides"></div>
       <div class="story__tap story__tap--prev" data-dir="-1"></div>
       <div class="story__tap story__tap--next" data-dir="1"></div>
     </div>
